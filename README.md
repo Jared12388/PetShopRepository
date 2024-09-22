@@ -1,2 +1,2 @@
-# CanasaRepository
-Jared's Repository
+# PetShopRepository
+Pet Shop Purposes
