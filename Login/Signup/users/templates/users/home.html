@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    {% load static %}
+    <style>
+        /* Fullscreen background image */
+        body {
+    margin: 0;
+    padding: 0;
+    background-image: url("{% static 'images/landingBack.png' %}");
+    background-size: cover; /* Use 'cover' instead of 'contain' */
+    background-position: center; /* Center the background image */
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-family: 'Arial', sans-serif;
+    color: #d6d3d3;
+    position: relative;
+}
+
+
+        header {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: #FFFDB5; /* Full width background color */
+            padding: 20px 0; /* Padding for the header */
+            z-index: 2; /* Ensure header is above background */
+        }
+
+        .header-container {
+            display: flex; /* Use flexbox for alignment */
+            align-items: center; /* Center items vertically */
+            justify-content: center; /* Center items horizontally */
+        }
+
+        .logo-overlay {
+            position: absolute; /* Position relative to the header */
+            top: -20px; /* Adjust this value to position logo */
+            left: 35%; /* Center horizontally */
+            transform: translateX(-60%); /* Adjust centering */
+        }
+
+        .logo-overlay img {
+            height: 150px; /* Adjust the height of the logo */
+            object-fit: contain; /* Maintain aspect ratio */
+        }
+
+        header h1 {
+            margin: 0; /* Remove default margin */
+            font-size: 2.8rem; /* Adjust font size */
+            font-family: 'Itim', cursive;
+            color: #0d0c0c; /* Title color */
+        }
+
+        .form-container {
+            background-color: #FFFDB5;
+            margin: 70px;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            width: 300px; /* Adjust this width if necessary */
+            height: 300px;
+            margin-right: auto; /* Pushes the container to the right */
+            margin-top: 150px; /* Adds space below the header */
+            display: flex;            /* Enable flexbox */
+            flex-direction: column;   /* Arrange children in a column */
+            justify-content: center;  /* Center vertically */
+            align-items: center;      /* Center horizontally */
+            z-index: 1; /* Ensure the form appears above the background text */
+        }
+
+        .form-container h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: #080808;
+            font-family: 'Itim', cursive;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        nav ul li {
+            display: inline-block;
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #0b0b0b;
+            font-size: 1.2rem;
+            padding: 10px 20px;
+            border: 2px solid #0c0c0c;
+            border-radius: 5px;
+            transition: background 0.3s ease, color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            background-color: #fff;
+            color: #333;
+        }
+
+        /* Footer styles (overlay text) */
+        .overlay-text {
+            position: absolute; /* Position relative to the nearest positioned ancestor */
+            bottom: 0; /* Position it at the very bottom */
+            left: 0; /* Align to the left */
+            width: 100%; /* Full width */
+            background-color: #FFFDB5; /* Match footer color with header */
+            color: rgba(10, 10, 10, 0.8); /* Light color for contrast */
+            font-size: 2.5rem; /* Adjust size as necessary */
+            font-weight: bolder;
+            text-align: center; /* Center the text */
+            font-family: 'Itim', cursive;
+            padding: 25px 0; /* Padding for some space */
+            z-index: 2; /* Ensure it appears above the background */
+        }
+    </style>
+</head>
+<body>
+    <!-- Header section for the title -->
+    <header>
+        <div class="header-container">
+            <h1>Tails and Whiskers</h1>
+        </div>
+        <div class="logo-overlay">
+            <img class="logo" src="{% static 'images/logo.png' %}" alt="Logo">
+        </div>
+    </header>
+
+    <!-- Form container -->
+    <div class="form-container">
+        <h2>Welcome Furry Friends!</h2>
+        <nav>
+            <ul>
+                <li><a href="{% url 'login' %}">Login</a></li>
+                <li><a href="{% url 'signup' %}">Sign Up</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <!-- Footer (overlay text) -->
+    <div class="overlay-text">Your Pet's Happiness, Our Priority!</div>
+</body>
+</html>
